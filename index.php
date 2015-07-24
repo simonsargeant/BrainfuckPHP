@@ -1,7 +1,16 @@
 <?php
 
+require('src/autoloader.php');
+
+$autoloader = new Autoloader;
+$autoloader->register();
+
+$controller = new \BrainfuckPHP\Controller\Controller();
+$controller->run();
+exit;
 $program = '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.';
-$input = '';
+//$program = isset($_POST['program']) ? $_POST['program'] : '';
+$input = isset($_POST['input']) ? $_POST['input'] : '';
 $output = '';
 
 $inputArray = str_split($input);
@@ -63,10 +72,12 @@ for ($programPointer = 0; $programPointer < count($programArray); $programPointe
     </head>
     <body>
         <h1>BrainfuckPHP</h1>
-        <h2>Program</h2>
-        <pre><?=$program?></pre>
-        <h2>Input string</h2>
-        <pre><?=$input?></pre>
+        <form action="" method="post">
+            <h2>Program</h2>
+            <input name="program" value="<?=$program?>">
+            <h2>Input string</h2>
+            <input name="input" value="<?=$input?>">
+        </form>
         <h2>Output string</h2>
         <pre><?=$output?></pre>
         <h2>Memory</h2>
