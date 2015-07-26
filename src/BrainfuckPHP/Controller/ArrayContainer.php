@@ -18,11 +18,18 @@ class ArrayContainer
 
     public function getValue()
     {
-        if (!isset($this->array[$this->pointer])) {
-            return null;
+        $value = null;
+
+        if (isset($this->array[$this->pointer])) {
+            $value = $this->array[$this->pointer];
         }
 
-        return $this->array[$this->pointer];
+        return $value;
+    }
+
+    public function setValue($value)
+    {
+        $this->array[$this->pointer] = $value;
     }
 
     public function getPointer()
@@ -30,9 +37,34 @@ class ArrayContainer
         return $this->pointer;
     }
 
-
     public function setPointer($pointer)
     {
         $this->pointer = $pointer;
+    }
+
+    public function getArray()
+    {
+        return $this->array;
+    }
+
+    // Sugar
+    public function incrementValue()
+    {
+        $this->setValue($this->getValue() + 1);
+    }
+
+    public function decrementValue()
+    {
+        $this->setValue($this->getValue() - 1);
+    }
+
+    public function incrementPointer()
+    {
+        $this->setPointer($this->getPointer() + 1);
+    }
+
+    public function decrementPointer()
+    {
+        $this->setPointer($this->getPointer() - 1);
     }
 }

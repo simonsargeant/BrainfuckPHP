@@ -8,6 +8,6 @@ class DecrementMemory extends Command
 {
     public function execute()
     {
-
+        $this->memory->decrementValue();
     }
 }

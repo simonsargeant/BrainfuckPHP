@@ -8,6 +8,6 @@ class DecrementPointer extends Command
 {
     public function execute()
     {
-
+        $this->memory->decrementPointer();
     }
 }

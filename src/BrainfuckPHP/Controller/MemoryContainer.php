@@ -17,7 +17,13 @@ class MemoryContainer extends ArrayContainer
             $this->array[$this->pointer] = 0;
         }
 
-        parent::getValue();
+        return parent::getValue();
+    }
+
+    public function setPointer($pointer)
+    {
+        parent::setPointer($pointer);
+        $this->getValue();
     }
 
 }

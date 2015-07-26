@@ -8,6 +8,6 @@ class IncrementPointer extends Command
 {
     public function execute()
     {
-
+        $this->memory->incrementPointer();
     }
 }
