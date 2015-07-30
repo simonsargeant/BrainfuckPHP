@@ -1,2 +1,4 @@
 .idea
 logs
+web/assets
+prepros.cfg

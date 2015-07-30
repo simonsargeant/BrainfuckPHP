@@ -1,6 +1,5 @@
 <?php
 
-
 namespace BrainfuckPHP\Request;
 
 use BrainfuckPHP\Controller\ArrayContainer;
@@ -10,23 +9,43 @@ class Response
 {
     private $view;
 
-    public function processResponse(
+    private $variables = [];
+
+    public function __construct()
+    {
+        $this->view = __DIR__ . '\..\Template\Main.php';
+    }
+
+    public function prepareResponse(
         ArrayContainer $input,
         ArrayContainer $output,
         MemoryContainer $memory,
         ArrayContainer $program
-    )
+    ) {
+        $this->variables['input'] = implode(array_map([$this, "formatCharacter"], $input->getArray()));
+
+        $this->variables['output'] = implode(array_map([$this, "formatCharacter"], $output->getArray()));
+
+        $this->variables['memory'] = $memory->getArray();
+
+        $this->variables['program'] = implode($program->getArray());
+    }
+
+    public function processResponse()
     {
-        echo '<pre>';
-        $outputArray = $output->getArray();
-        foreach ($outputArray as $char) {
-            echo chr($char);
+        foreach ($this->variables as $name => $variable) {
+            $$name = $variable;
         }
-        echo '<br>';
-        //echo $input->getArray();
-        print_r($memory->getArray());
-        echo '<br>';
-        echo implode($program->getArray());
-        echo '</pre>';
+
+        include($this->view);
+    }
+
+    private function formatCharacter($character)
+    {
+        if ($character > 0) {
+            return chr($character);
+        }
+
+        return '';
     }
 }
