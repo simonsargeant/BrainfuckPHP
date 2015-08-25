@@ -50,8 +50,6 @@ class Controller
     public function __construct()
     {
         $this->memory = new MemoryContainer();
-        $this->program = new ArrayContainer([]);
-        $this->input = new ArrayContainer([]);
         $this->output = new ArrayContainer([]);
         $this->loop = new LoopStack();
         $this->request = new Request();

@@ -1,0 +1,15 @@
+th, td {
+  padding: 10px 10px 10px 10px;
+  border: 1px solid $colour-background;
+}
+
+table {
+  width: 100%;
+  background-color: $colour-background-titlebox;
+  border: 1px solid $colour-background;
+  border-collapse: collapse;
+}
+
+.CommandTable td:first-child {
+  text-align: center;
+}

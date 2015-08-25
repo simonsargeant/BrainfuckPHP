@@ -9,8 +9,15 @@ use BrainfuckPHP\Controller\MemoryContainer;
 
 class ReadInput extends Command
 {
+    /**
+     * @var ArrayContainer
+     */
     private $input;
 
+    /**
+     * @param ArrayContainer $input
+     * @param MemoryContainer $memory
+     */
     public function __construct(
         ArrayContainer $input,
         MemoryContainer $memory

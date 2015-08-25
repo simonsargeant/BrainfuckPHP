@@ -1,4 +1,5 @@
 <?php
+// Todo update
 
 //$program = '++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.';
 $program = isset($_POST['program']) ? $_POST['program'] : '';
@@ -63,17 +64,18 @@ for ($programPointer = 0; $programPointer < count($programArray); $programPointe
     <title>BrainfuckPHP</title>
 </head>
 <body>
-    <h1>BrainfuckPHP</h1>
-    <form action="" method="post">
-        <h2>Program</h2>
-        <input name="program" value="<?= $program ?>">
+<h1>BrainfuckPHP</h1>
 
-        <h2>Input string</h2>
-        <input name="input" value="<?= $input ?>">
-    </form>
-    <h2>Output string</h2>
-    <pre><?= $output ?></pre>
-        <h2>Memory</h2>
-    <pre><?= print_r($memoryArray, true) ?></pre>
+<form action="" method="post">
+    <h2>Program</h2>
+    <input name="program" value="<?= $program ?>">
+
+    <h2>Input string</h2>
+    <input name="input" value="<?= $input ?>">
+</form>
+<h2>Output string</h2>
+<pre><?= $output ?></pre>
+<h2>Memory</h2>
+<pre><?= print_r($memoryArray, true) ?></pre>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 
+
 namespace BrainfuckPHP\Command;
 
 
@@ -18,24 +19,45 @@ class CommandFactory
     const INPUT = ',';
     const OUTPUT = '.';
 
+    /**
+     * @var ArrayContainer
+     */
     private $input;
 
+    /**
+     * @var ArrayContainer
+     */
     private $output;
 
+    /**
+     * @var MemoryContainer
+     */
     private $memory;
 
+    /**
+     * @var ArrayContainer
+     */
     private $program;
 
+    /**
+     * @var LoopStack
+     */
     private $loop;
 
+    /**
+     * @param ArrayContainer $input
+     * @param ArrayContainer $output
+     * @param MemoryContainer $memory
+     * @param ArrayContainer $program
+     * @param LoopStack $loop
+     */
     public function __construct(
         ArrayContainer $input,
         ArrayContainer $output,
         MemoryContainer $memory,
         ArrayContainer $program,
         LoopStack $loop
-    )
-    {
+    ) {
         $this->input = $input;
         $this->output = $output;
         $this->memory = $memory;
@@ -43,6 +65,11 @@ class CommandFactory
         $this->loop = $loop;
     }
 
+    /**
+     * @param string $command
+     *
+     * @return Command
+     */
     public function getCommand($command)
     {
         switch ($command) {

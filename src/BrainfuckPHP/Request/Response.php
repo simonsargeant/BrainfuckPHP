@@ -7,15 +7,29 @@ use BrainfuckPHP\Controller\MemoryContainer;
 
 class Response
 {
+    const TEMPLATE = '\..\Template\Main.php';
+
+    /**
+     * @var string
+     */
     private $view;
 
+    /**
+     * @var array
+     */
     private $variables = [];
 
     public function __construct()
     {
-        $this->view = __DIR__ . '\..\Template\Main.php';
+        $this->view = __DIR__ . self::TEMPLATE;
     }
 
+    /**
+     * @param ArrayContainer $input
+     * @param ArrayContainer $output
+     * @param MemoryContainer $memory
+     * @param ArrayContainer $program
+     */
     public function prepareResponse(
         ArrayContainer $input,
         ArrayContainer $output,
@@ -40,6 +54,10 @@ class Response
         include($this->view);
     }
 
+    /**
+     * @param int $character
+     * @return string
+     */
     private function formatCharacter($character)
     {
         if ($character > 0) {

@@ -9,6 +9,9 @@ class Request
     const INPUT = 'input';
     const PROGRAM = 'program';
 
+    /**
+     * @var array
+     */
     private $parameters = [];
 
     public function __construct()
@@ -22,6 +25,10 @@ class Request
         }
     }
 
+    /**
+     * @param string $value
+     * @return string
+     */
     public function getParameter($value)
     {
         if (isset($this->parameters[$value])) {
