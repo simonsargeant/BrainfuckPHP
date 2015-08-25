@@ -43,10 +43,10 @@
     </h2>
 
     <p>
-        Brainfuck is a simple turing complete esoteric programming language where
-        an array of bytes is traversed by a pointer which allows the value at
-        that point to be incremented and decremented. The memory can then be outputted as ANSI characters.
-        Brainfuck is completely controlled by 8 commands:
+        Brainfuck is a simple programming language where
+        an array of bytes is traversed by a pointer, which allows the value at
+        that point to be incremented and decremented. The memory can then be outputted as a character.
+        The Brainfuck pointer is controlled via 8 commands:
     </p>
     <table class="CommandTable">
         <thead>
